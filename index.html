@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>onlyw</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="startup" class="centered">
+      <div class="logo">onlyw</div>
+
+      <div class="form-container">
+        <div class="form-row">
+          <div class="prompt">Vilka sidor vill du använda?</div>
+          <button id="surf" class="surf-btn">surf</button>
+        </div>
+        <textarea id="urls" placeholder="https://example.com"></textarea>
+      </div>
+    </div>
+
+    <div id="browser" class="hidden">
+      <div id="topbar">
+        <div id="tabs"></div>
+        <div id="nav">
+          <button id="back" class="icon-btn">←</button>
+          <button id="forward" class="icon-btn">→</button>
+          <button id="reload" class="icon-btn">↻</button>
+          <div id="menu-container">
+            <button id="menu-btn" class="icon-btn">☰</button>
+            <div id="dropdown" class="dropdown hidden">
+              <div class="dropdown-item" id="maximize-btn">Maximera</div>
+              <div class="dropdown-item" id="minimize-btn">Minimera</div>
+              <div class="dropdown-item" id="fullscreen-btn">Helskärm (fönster)</div>
+              <div class="dropdown-item" id="pomodoro-btn">Pomodoro-timer</div>
+            </div>
+          </div>
+          <button id="exit" class="icon-btn">✕</button>
+        </div>
+      </div>
+      <div id="content"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
