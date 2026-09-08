@@ -2,7 +2,7 @@
 
 Dont build anything yet im going to clone my github repository https://github.com/eskil7788/onlyw-browser.git
 
-This project was built with [Lovable](https://lovable.dev).
+This project was built with my bare handds
 
 ## Build with Lovable
 
