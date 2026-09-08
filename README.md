@@ -1,29 +1,33 @@
-# Welcome to your Lovable project
+# onlyw
 
-This project was built with [Lovable](https://lovable.dev).
+En minimal webbläsare med vitlista. Starta appen, skriv en tillåten adress per rad (eller välj en sparad grupp) och tryck **surf**. Varje sida öppnas i en egen flik. Navigering till sidor utanför vitlistan blockeras.
 
-## Build with Lovable
+## Utveckling (webbförhandsvisning)
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
+npm install
 npm run dev
 ```
 
-## Built with
+## Skrivbordsapp (Electron)
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+Electron är inte med i standardinstallationen (stort paket). Installera en gång:
+
+```bash
+npm install -D electron @electron/packager
+```
+
+Bygg och starta:
+
+```bash
+npm run electron:build   # bygger en statisk bundle till dist/
+npm run electron:start   # startar skrivbordsappen
+```
+
+Skapa en .exe (Windows, x64):
+
+```bash
+npm run electron:package   # resultatet hamnar i release/onlyw-win32-x64/
+```
+
+Cookies och cache sparas på datorn (Electron-partition `persist:onlyw`), och sparade grupper ligger i appens lokala lagring.

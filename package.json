@@ -11,7 +11,6 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "electron:start": "electron .",
-    "electron:dev": "cross-env ONLYW_DEV_URL=http://localhost:8080 electron .",
     "electron:build": "node electron/build.mjs",
     "electron:package": "node electron/build.mjs && electron-packager . onlyw --platform=win32 --arch=x64 --out=release --overwrite --ignore=^/src --ignore=^/public --ignore=^/release --ignore=^/\\.output"
   },
