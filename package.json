@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "onlyw-browser",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -9,7 +9,11 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "electron:start": "electron .",
+    "electron:dev": "cross-env ONLYW_DEV_URL=http://localhost:8080 electron .",
+    "electron:build": "node electron/build.mjs",
+    "electron:package": "node electron/build.mjs && electron-packager . onlyw --platform=win32 --arch=x64 --out=release --overwrite --ignore=^/src --ignore=^/public --ignore=^/release --ignore=^/\\.output"
   },
   "overrides": {
     "rolldown": "1.2.1"
@@ -86,5 +90,8 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "8.1.5"
-  }
+  },
+  "version": "0.2.0",
+  "description": "onlyw - minimal whitelist browser",
+  "main": "electron/main.cjs"
 }
