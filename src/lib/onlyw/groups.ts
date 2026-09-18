@@ -35,7 +35,7 @@ export async function loadGroups(): Promise<UrlGroup[]> {
       if (fromDisk.length > 0) return fromDisk;
       // Migrate any groups saved before disk storage existed.
       const local = loadLocal();
-      if (local.length > 0) await bridge.setGroups(local);
+      if (local.length > 0) await bridge.setGroups?.(local);
       return local;
     } catch {
       return loadLocal();
