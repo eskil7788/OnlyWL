@@ -6,10 +6,11 @@ import { parseLines } from "@/lib/onlyw/urls";
 
 type Props = {
   onSurf: (lines: string[]) => void;
+  onExit: () => void;
   exiting?: boolean;
 };
 
-export function Startup({ onSurf, exiting }: Props) {
+export function Startup({ onSurf, onExit, exiting }: Props) {
   const [text, setText] = useState("");
   const [groups, setGroups] = useState<UrlGroup[]>([]);
   const [panelOpen, setPanelOpen] = useState(false);
