@@ -63,7 +63,7 @@ function Index() {
       {phase === "browse" && session ? (
         <BrowserShell urls={session.urls} electron={electron} onExit={handleExit} />
       ) : (
-        <Startup onSurf={handleSurf} exiting={phase === "leaving"} />
+        <Startup onSurf={handleSurf} onExit={handleExit} exiting={phase === "leaving"} />
       )}
     </div>
   );

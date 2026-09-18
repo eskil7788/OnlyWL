@@ -1,4 +1,5 @@
 import type { Whitelist } from "./urls";
+import type { UrlGroup } from "./groups";
 
 export type OnlywBridge = {
   setWhitelist: (lines: string[]) => Promise<Whitelist>;
@@ -6,6 +7,8 @@ export type OnlywBridge = {
   windowMaximize: () => Promise<void>;
   windowMinimize: () => Promise<void>;
   windowFullscreen: (enable: boolean) => Promise<void>;
+  getGroups?: () => Promise<UrlGroup[]>;
+  setGroups?: (groups: UrlGroup[]) => Promise<void>;
 };
 
 declare global {

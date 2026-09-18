@@ -6,10 +6,11 @@ import { parseLines } from "@/lib/onlyw/urls";
 
 type Props = {
   onSurf: (lines: string[]) => void;
+  onExit: () => void;
   exiting?: boolean;
 };
 
-export function Startup({ onSurf, exiting }: Props) {
+export function Startup({ onSurf, onExit, exiting }: Props) {
   const [text, setText] = useState("");
   const [groups, setGroups] = useState<UrlGroup[]>([]);
   const [panelOpen, setPanelOpen] = useState(false);
@@ -20,7 +21,13 @@ export function Startup({ onSurf, exiting }: Props) {
   const nameRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setGroups(loadGroups());
+    let alive = true;
+    loadGroups().then((g) => {
+      if (alive) setGroups(g);
+    });
+    return () => {
+      alive = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -60,10 +67,18 @@ export function Startup({ onSurf, exiting }: Props) {
   return (
     <div
       className={cn(
-        "flex h-full w-full flex-col items-center justify-center px-6 transition-all duration-300 ease-out",
+        "relative flex h-full w-full flex-col items-center justify-center px-6 transition-all duration-300 ease-out",
         exiting ? "scale-[0.985] opacity-0" : "opacity-100",
       )}
     >
+      <button
+        onClick={onExit}
+        aria-label="Avsluta"
+        className="ring-focus absolute top-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-lg text-foreground/70 transition-all duration-150 hover:bg-destructive/80 hover:text-foreground active:scale-95"
+      >
+        <X className="h-[18px] w-[18px]" strokeWidth={1.75} />
+      </button>
+
       <h1 className="animate-in fade-in slide-in-from-bottom-2 -mt-12 mb-8 text-[96px] leading-none font-bold tracking-tight duration-700">
         onlyw
       </h1>
@@ -73,9 +88,9 @@ export function Startup({ onSurf, exiting }: Props) {
           <p className="text-[15px] text-foreground/90">Vilka sidor vill du använda?</p>
           <button
             onClick={() => onSurf(parseLines(text))}
-            className="ring-focus rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold lowercase text-primary-foreground shadow-glow transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_36px_-8px_oklch(1_0_0/0.3)] active:translate-y-0 active:scale-[0.98]"
+            className="ring-focus rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_36px_-8px_oklch(1_0_0/0.3)] active:translate-y-0 active:scale-[0.98]"
           >
-            surf
+            Surf
           </button>
         </div>
 
