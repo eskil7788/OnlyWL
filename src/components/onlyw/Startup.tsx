@@ -67,10 +67,18 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
   return (
     <div
       className={cn(
-        "flex h-full w-full flex-col items-center justify-center px-6 transition-all duration-300 ease-out",
+        "relative flex h-full w-full flex-col items-center justify-center px-6 transition-all duration-300 ease-out",
         exiting ? "scale-[0.985] opacity-0" : "opacity-100",
       )}
     >
+      <button
+        onClick={onExit}
+        aria-label="Avsluta"
+        className="ring-focus absolute top-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-lg text-foreground/70 transition-all duration-150 hover:bg-destructive/80 hover:text-foreground active:scale-95"
+      >
+        <X className="h-[18px] w-[18px]" strokeWidth={1.75} />
+      </button>
+
       <h1 className="animate-in fade-in slide-in-from-bottom-2 -mt-12 mb-8 text-[96px] leading-none font-bold tracking-tight duration-700">
         onlyw
       </h1>
