@@ -93,7 +93,15 @@ function createWindow() {
   });
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  // Keep cookies and cache (so logins stick) but never keep saved HTTP credentials.
+  try {
+    session.fromPartition("persist:onlyw").clearAuthCache();
+  } catch {
+    // ignore
+  }
+  createWindow();
+});
 
 app.on("window-all-closed", () => {
   app.quit();
