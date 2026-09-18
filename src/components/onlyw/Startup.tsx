@@ -21,7 +21,13 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
   const nameRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setGroups(loadGroups());
+    let alive = true;
+    loadGroups().then((g) => {
+      if (alive) setGroups(g);
+    });
+    return () => {
+      alive = false;
+    };
   }, []);
 
   useEffect(() => {
