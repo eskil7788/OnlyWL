@@ -1,9 +1,36 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, session } = require("electron");
 const path = require("path");
 const fs = require("fs");
 
 let mainWindow;
 let allowedHosts = new Set();
+
+// Saved URL groups live in a plain JSON file inside the app's user data folder,
+// so they survive restarts. Only group names and URLs are stored here.
+function groupsFile() {
+  return path.join(app.getPath("userData"), "groups.json");
+}
+
+function readGroups() {
+  try {
+    const raw = fs.readFileSync(groupsFile(), "utf8");
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeGroups(groups) {
+  try {
+    const clean = (Array.isArray(groups) ? groups : [])
+      .filter((g) => g && typeof g.id === "string" && typeof g.name === "string" && Array.isArray(g.urls))
+      .map((g) => ({ id: g.id, name: g.name, urls: g.urls.map(String) }));
+    fs.writeFileSync(groupsFile(), JSON.stringify(clean, null, 2), "utf8");
+  } catch {
+    // ignore write failures (read-only install folder, etc.)
+  }
+}
 
 function isAllowedHost(hostname) {
   if (!hostname) return false;
