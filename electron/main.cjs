@@ -157,3 +157,9 @@ ipcMain.handle("window-fullscreen", (_event, enable) => {
 ipcMain.on("exit-app", () => {
   app.quit();
 });
+
+ipcMain.handle("groups-get", () => readGroups());
+
+ipcMain.handle("groups-set", (_event, groups) => {
+  writeGroups(groups);
+});
