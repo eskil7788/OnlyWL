@@ -64,6 +64,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     backgroundColor: "#000000",
+    frame: false, 
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
