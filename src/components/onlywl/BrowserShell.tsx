@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Menu, RotateCw, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { getBridge } from "@/lib/onlyw/electron";
-import { tabLabel } from "@/lib/onlyw/urls";
+import { getBridge } from "@/lib/onlywl/electron";
+import { tabLabel } from "@/lib/onlywl/urls";
 import { PomodoroTab } from "./PomodoroTab";
 import { TabView, type TabViewHandle } from "./TabView";
 
@@ -26,7 +26,6 @@ export function BrowserShell({ urls, electron, onExit }: Props) {
   const menuRef = useRef<HTMLDivElement>(null);
   const bridge = getBridge();
 
-  // Mute inactive tabs (Electron only)
   useEffect(() => {
     views.current.forEach((v, i) => {
       if (v) {
@@ -35,7 +34,6 @@ export function BrowserShell({ urls, electron, onExit }: Props) {
     });
   }, [active]);
 
-  // Close menu on outside click
   useEffect(() => {
     if (!menuOpen) return;
     const onDoc = (e: MouseEvent) => {
@@ -45,7 +43,6 @@ export function BrowserShell({ urls, electron, onExit }: Props) {
     return () => document.removeEventListener("click", onDoc);
   }, [menuOpen]);
 
-  // ESC exits fullscreen
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && fullscreen) {

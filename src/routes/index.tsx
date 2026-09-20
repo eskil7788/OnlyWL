@@ -1,19 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Startup } from "@/components/onlyw/Startup";
-import { BrowserShell } from "@/components/onlyw/BrowserShell";
-import { getBridge, isElectron } from "@/lib/onlyw/electron";
-import { normalizeLines, type Whitelist } from "@/lib/onlyw/urls";
+import { Startup } from "@/components/onlywl/Startup";
+import { BrowserShell } from "@/components/onlywl/BrowserShell";
+import { getBridge, isElectron } from "@/lib/onlywl/electron";
+import { normalizeLines, type Whitelist } from "@/lib/onlywl/urls";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "onlyw – fokuserad webbläsare med vitlista" },
+      { title: "OnlyWL – fokuserad webbläsare med vitlista" },
       {
         name: "description",
-        content: "onlyw är en minimal webbläsare utan sökmotor. Du surfar bara på sidorna du själv tillåter.",
+        content: "OnlyWL är en minimal webbläsare utan sökmotor. Du surfar bara på sidorna du själv tillåter.",
       },
-      { property: "og:title", content: "onlyw – fokuserad webbläsare med vitlista" },
+      { property: "og:title", content: "OnlyWL – fokuserad webbläsare med vitlista" },
       {
         property: "og:description",
         content: "En minimal webbläsare utan sökmotor. Du surfar bara på sidorna du själv tillåter.",
@@ -52,7 +52,6 @@ function Index() {
     const bridge = getBridge();
     if (bridge) bridge.exitApp();
     else {
-      // Web preview: there is no process to close, so return to the start screen.
       setSession(null);
       setPhase("start");
     }

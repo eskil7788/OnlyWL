@@ -1,6 +1,6 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
-contextBridge.exposeInMainWorld("onlyw", {
+contextBridge.exposeInMainWorld("onlywl", {
   setWhitelist: (lines) => ipcRenderer.invoke("set-whitelist", lines),
   exitApp: () => ipcRenderer.send("exit-app"),
   windowMaximize: () => ipcRenderer.invoke("window-maximize"),

@@ -88,7 +88,6 @@ export const TabView = forwardRef<TabViewHandle, Props>(function TabView(
         try {
           wv.setAudioMuted(muted);
         } catch {
-          // Webview may have been destroyed during navigation.
         }
       },
     }),
@@ -110,7 +109,6 @@ export const TabView = forwardRef<TabViewHandle, Props>(function TabView(
           canGoForward: wv.canGoForward(),
         });
       } catch {
-        // Webview may have been destroyed during navigation.
       }
     };
 
@@ -123,7 +121,6 @@ export const TabView = forwardRef<TabViewHandle, Props>(function TabView(
           false,
         ).catch(() => {});
       } catch {
-        // Ignore if the guest was destroyed while becoming ready.
       }
 
       try {
@@ -132,7 +129,6 @@ export const TabView = forwardRef<TabViewHandle, Props>(function TabView(
           canGoForward: wv.canGoForward(),
         });
       } catch {
-        // Ignore transient webview lifecycle errors.
       }
     };
 

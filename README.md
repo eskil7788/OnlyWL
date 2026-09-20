@@ -1,6 +1,6 @@
-# onlyw
+# OnlyWL
 
-En minimal webbläsare med vitlista. Starta appen, skriv en tillåten adress per rad (eller välj en sparad grupp) och tryck **surf**. Varje sida öppnas i en egen flik. Navigering till sidor utanför vitlistan blockeras.
+En minimal webbläsare med vitlista. Starta appen, skriv en tillåten adress per rad (eller välj en sparad grupp) och tryck **Surf**. Varje sida öppnas i en egen flik. Navigering till sidor utanför vitlistan blockeras.
 
 ## Utveckling (webbförhandsvisning)
 
@@ -27,7 +27,7 @@ npm run electron:start   # startar skrivbordsappen
 Skapa en .exe (Windows, x64):
 
 ```bash
-npm run electron:package   # resultatet hamnar i release/onlyw-win32-x64/
+npm run electron:package   # resultatet hamnar i release/OnlyWL-win32-x64/
 ```
 
-Cookies och cache sparas på datorn (Electron-partition `persist:onlyw`), och sparade grupper ligger i appens lokala lagring.
+Cookies och cache sparas på datorn så att inloggningar består. Lösenord sparas inte. Sparade grupper ligger i appens lokala lagring.
