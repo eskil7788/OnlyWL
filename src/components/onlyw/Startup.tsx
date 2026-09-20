@@ -158,9 +158,10 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
               setText(e.target.value);
               setActiveGroup(null);
             }}
+            placeholder={"https://exempel.se"}
             spellCheck={false}
             rows={10}
-            className="ring-focus h-[200px] w-full resize-none rounded-xl border border-border bg-surface px-4 py-3.5 text-[15px] leading-relaxed text-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.03)] transition-all duration-200 hover:border-border-strong focus:border-border-strong focus:bg-card"
+            className="ring-focus h-[200px] w-full resize-none rounded-xl border border-border bg-surface px-4 py-3.5 text-[15px] leading-relaxed text-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.03)] transition-all duration-200 hover:border-border-strong focus:border-border-strong focus:bg-card placeholder:text-muted-foreground/50"
           />
           <button
             onClick={() => setPanelOpen((v) => !v)}
@@ -205,7 +206,7 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
               <textarea
                 value={groupUrls}
                 onChange={(e) => setGroupUrls(e.target.value)}
-                placeholder={"https://example.com"}
+                placeholder={"https://exempel.se"}
                 spellCheck={false}
                 rows={4}
                 className="ring-focus resize-none rounded-lg border border-border bg-surface px-3 py-2 text-sm leading-relaxed placeholder:text-muted-foreground/60 transition-colors hover:border-border-strong focus:border-border-strong"
