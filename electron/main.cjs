@@ -93,6 +93,30 @@ function createWindow() {
   });
 }
 
+app.on("web-contents-created", (_event, contents) => {
+  if (contents.getType() !== "webview") return;
+
+  contents.on("will-navigate", (event, url) => {
+    if (!isAllowedUrl(url)) event.preventDefault();
+  });
+
+  contents.setWindowOpenHandler(({ url }) => {
+    if (isAllowedUrl(url)) contents.loadURL(url);
+    return { action: "deny" };
+  });
+});
+
+// DEBUG
+app.on("web-contents-created", (_event, contents) => {
+  contents.on("console-message", (_event, level, message, line, sourceId) => {
+    console.log(`[Electron Console ${level}] ${sourceId}:${line} ${message}`);
+  });
+
+  contents.on("render-process-gone", (_event, details) => {
+    console.log("[Electron Renderer Crashed]", details);
+  });
+});
+
 app.whenReady().then(() => {
   // Keep cookies and cache (so logins stick) but never keep saved HTTP credentials.
   try {

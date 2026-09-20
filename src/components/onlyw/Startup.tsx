@@ -70,6 +70,7 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
         "relative flex h-full w-full flex-col items-center justify-center px-6 transition-all duration-300 ease-out",
         exiting ? "scale-[0.985] opacity-0" : "opacity-100",
       )}
+      
     >
       <button
         onClick={onExit}
@@ -204,7 +205,7 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
               <textarea
                 value={groupUrls}
                 onChange={(e) => setGroupUrls(e.target.value)}
-                placeholder={"https://google.com\nhttps://chatgpt.com\nhttps://x.com"}
+                placeholder={"https://example.com"}
                 spellCheck={false}
                 rows={4}
                 className="ring-focus resize-none rounded-lg border border-border bg-surface px-3 py-2 text-sm leading-relaxed placeholder:text-muted-foreground/60 transition-colors hover:border-border-strong focus:border-border-strong"

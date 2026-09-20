@@ -28,7 +28,11 @@ export function BrowserShell({ urls, electron, onExit }: Props) {
 
   // Mute inactive tabs (Electron only)
   useEffect(() => {
-    views.current.forEach((v, i) => v?.setMuted(i !== active));
+    views.current.forEach((v, i) => {
+      if (v) {
+        v.setMuted(i !== active);
+      }
+    });
   }, [active]);
 
   // Close menu on outside click
