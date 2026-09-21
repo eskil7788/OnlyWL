@@ -5,6 +5,8 @@ const fs = require("fs");
 let mainWindow;
 let allowedHosts = new Set();
 
+app.setName("OnlyWL");
+
 // Saved URL groups live in a plain JSON file inside the app's user data folder,
 // so they survive restarts. Only group names and URLs are stored here.
 function groupsFile() {
@@ -64,6 +66,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     backgroundColor: "#000000",
+    icon: path.join(__dirname, "onlywl.ico"),
     frame: false, 
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
