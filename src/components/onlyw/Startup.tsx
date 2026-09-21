@@ -81,11 +81,11 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
         <X className="h-[18px] w-[18px]" strokeWidth={1.75} />
       </button>
 
-      <h1 className="animate-in fade-in slide-in-from-bottom-2 -mt-12 mb-8 w-full max-w-[560px] duration-700">
+      <h1 className="animate-in fade-in slide-in-from-bottom-2 relative -translate-y-20 mb-0 w-full max-w-[420px] duration-700">
         <img
           src={startLogo}
           alt="OnlyWL"
-          className="block aspect-video h-auto w-full object-contain"
+          className="block h-auto w-full object-contain"
         />
       </h1>
 
