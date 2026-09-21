@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "electron:start": "electron .",
     "electron:build": "node electron/build.mjs",
-    "electron:package": "node electron/build.mjs && electron-packager . OnlyWL --platform=win32 --arch=x64 --icon=electron/onlywl.ico --out=release --overwrite --ignore=^/src --ignore=^/public --ignore=^/release --ignore=^/\\.output"
+    "electron:package": "node electron/build.mjs && electron-packager . OnlyWL --platform=win32 --arch=x64 --icon=photos/logokvadrat.png --out=release --overwrite --ignore=^/src --ignore=^/public --ignore=^/release --ignore=^/\\.output"
   },
   "overrides": {
     "rolldown": "1.2.1"
