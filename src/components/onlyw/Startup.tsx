@@ -3,7 +3,7 @@ import { FolderPlus, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { loadGroups, newGroupId, saveGroups, type UrlGroup } from "@/lib/onlyw/groups";
 import { parseLines } from "@/lib/onlyw/urls";
-import startLogo from "@/assets/onlywl-start-logo.jpeg.asset.json";
+import startLogo from "../../../photos/logostart.jpeg";
 
 type Props = {
   onSurf: (lines: string[]) => void;
@@ -83,7 +83,7 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
 
       <h1 className="animate-in fade-in slide-in-from-bottom-2 -mt-12 mb-8 w-full max-w-[560px] duration-700">
         <img
-          src={startLogo.url}
+          src={startLogo}
           alt="OnlyWL"
           className="block aspect-video h-auto w-full object-contain"
         />

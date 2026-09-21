@@ -66,7 +66,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     backgroundColor: "#000000",
-    icon: path.join(__dirname, "onlywl.ico"),
+    icon: path.join(__dirname, "..", "photos", "logokvadrat.png"),
     frame: false, 
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
