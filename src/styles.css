@@ -72,7 +72,7 @@
   --shadow-glow: 0 8px 30px -8px oklch(1 0 0 / 0.18);
 }
 
-/* OnlyWL — pure black and white, Ubuntu throughout */
+/* onlyw — pure black & white, Ubuntu everywhere */
 :root {
   --radius: 0.75rem;
   --background: oklch(0 0 0);

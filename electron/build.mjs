@@ -25,7 +25,7 @@ let html = fs.readFileSync(indexPath, "utf8");
 // TanStack Start generates root-relative asset paths.
 // Electron loads index.html through file://, so make these paths relative.
 html = html.replaceAll('="/./assets/', '="./assets/');
-html = html.replaceAll('="/favicon.png"', '="./favicon.png"');
+html = html.replaceAll('="/favicon.ico"', '="./favicon.ico"');
 
 fs.writeFileSync(indexPath, html, "utf8");
 

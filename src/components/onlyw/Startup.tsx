@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { FolderPlus, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import onlywlLogo from "@/assets/onlywl-logo.png";
-import { loadGroups, newGroupId, saveGroups, type UrlGroup } from "@/lib/onlywl/groups";
-import { parseLines } from "@/lib/onlywl/urls";
+import { loadGroups, newGroupId, saveGroups, type UrlGroup } from "@/lib/onlyw/groups";
+import { parseLines } from "@/lib/onlyw/urls";
 
 type Props = {
   onSurf: (lines: string[]) => void;
@@ -81,11 +80,9 @@ export function Startup({ onSurf, onExit, exiting }: Props) {
         <X className="h-[18px] w-[18px]" strokeWidth={1.75} />
       </button>
 
-      <img
-        src={onlywlLogo}
-        alt="OnlyWL"
-        className="animate-in fade-in slide-in-from-bottom-2 -mt-12 mb-8 h-auto w-[min(74vw,570px)] duration-700"
-      />
+      <h1 className="animate-in fade-in slide-in-from-bottom-2 -mt-12 mb-8 text-[96px] leading-none font-bold tracking-tight duration-700">
+        onlyw
+      </h1>
 
       <div className="animate-in fade-in slide-in-from-bottom-1 flex w-full max-w-[640px] flex-col gap-3 delay-150 duration-700">
         <div className="flex items-center justify-between">

@@ -1,7 +1,7 @@
 import type { Whitelist } from "./urls";
 import type { UrlGroup } from "./groups";
 
-export type OnlyWLBridge = {
+export type OnlywBridge = {
   setWhitelist: (lines: string[]) => Promise<Whitelist>;
   exitApp: () => void;
   windowMaximize: () => Promise<void>;
@@ -13,13 +13,13 @@ export type OnlyWLBridge = {
 
 declare global {
   interface Window {
-    onlywl?: OnlyWLBridge;
+    onlyw?: OnlywBridge;
   }
 }
 
-export function getBridge(): OnlyWLBridge | null {
+export function getBridge(): OnlywBridge | null {
   if (typeof window === "undefined") return null;
-  return window.onlywl ?? null;
+  return window.onlyw ?? null;
 }
 
 export function isElectron(): boolean {

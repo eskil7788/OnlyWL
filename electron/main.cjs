@@ -61,10 +61,8 @@ function findIndexHtml() {
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    title: "OnlyWL",
     width: 1200,
     height: 800,
-    icon: path.join(__dirname, "onlywl.ico"),
     backgroundColor: "#000000",
     frame: false, 
     webPreferences: {
@@ -77,7 +75,7 @@ function createWindow() {
 
   mainWindow.removeMenu();
 
-  const devUrl = process.env.ONLYWL_DEV_URL;
+  const devUrl = process.env.ONLYW_DEV_URL;
   if (devUrl) {
     mainWindow.loadURL(devUrl);
   } else {
@@ -109,6 +107,17 @@ app.on("web-contents-created", (_event, contents) => {
   });
 });
 
+// DEBUG
+app.on("web-contents-created", (_event, contents) => {
+  contents.on("console-message", (_event, level, message, line, sourceId) => {
+    console.log(`[Electron Console ${level}] ${sourceId}:${line} ${message}`);
+  });
+
+  contents.on("render-process-gone", (_event, details) => {
+    console.log("[Electron Renderer Crashed]", details);
+  });
+});
+
 app.whenReady().then(() => {
   // Keep cookies and cache (so logins stick) but never keep saved HTTP credentials.
   try {
@@ -121,6 +130,20 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", () => {
   app.quit();
+});
+
+// Whitelist guard for every embedded page (webview contents)
+app.on("web-contents-created", (_event, contents) => {
+  if (contents.getType() !== "webview") return;
+
+  contents.on("will-navigate", (event, url) => {
+    if (!isAllowedUrl(url)) event.preventDefault();
+  });
+
+  contents.setWindowOpenHandler(({ url }) => {
+    if (isAllowedUrl(url)) contents.loadURL(url);
+    return { action: "deny" };
+  });
 });
 
 ipcMain.handle("set-whitelist", (_event, lines) => {
