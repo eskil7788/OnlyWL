@@ -8,12 +8,12 @@ import { normalizeLines, type Whitelist } from "@/lib/onlyw/urls";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "onlyw – fokuserad webbläsare med vitlista" },
+      { title: "OnlyWL – fokuserad webbläsare med vitlista" },
       {
         name: "description",
-        content: "onlyw är en minimal webbläsare utan sökmotor. Du surfar bara på sidorna du själv tillåter.",
+        content: "OnlyWL är en minimal webbläsare utan sökmotor. Du surfar bara på sidorna du själv tillåter.",
       },
-      { property: "og:title", content: "onlyw – fokuserad webbläsare med vitlista" },
+      { property: "og:title", content: "OnlyWL – fokuserad webbläsare med vitlista" },
       {
         property: "og:description",
         content: "En minimal webbläsare utan sökmotor. Du surfar bara på sidorna du själv tillåter.",

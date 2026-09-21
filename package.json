@@ -1,5 +1,5 @@
 {
-  "name": "onlyw-browser",
+  "name": "onlywl-browser",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "electron:start": "electron .",
     "electron:build": "node electron/build.mjs",
-    "electron:package": "node electron/build.mjs && electron-packager . onlyw --platform=win32 --arch=x64 --out=release --overwrite --ignore=^/src --ignore=^/public --ignore=^/release --ignore=^/\\.output"
+    "electron:package": "node electron/build.mjs && electron-packager . OnlyWL --platform=win32 --arch=x64 --icon=electron/onlywl.ico --out=release --overwrite --ignore=^/src --ignore=^/public --ignore=^/release --ignore=^/\\.output"
   },
   "overrides": {
     "rolldown": "1.2.1"
@@ -91,6 +91,6 @@
     "vite": "8.1.5"
   },
   "version": "0.2.0",
-  "description": "onlyw - minimal whitelist browser",
+  "description": "OnlyWL - minimal whitelist browser",
   "main": "electron/main.cjs"
 }

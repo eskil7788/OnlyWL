@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "onlyw" },
-      { name: "description", content: "onlyw – en minimal webbläsare med vitlista." },
-      { name: "author", content: "onlyw" },
-      { property: "og:title", content: "onlyw" },
-      { property: "og:description", content: "onlyw – en minimal webbläsare med vitlista." },
+      { title: "OnlyWL" },
+      { name: "description", content: "OnlyWL – en minimal webbläsare med vitlista." },
+      { name: "author", content: "OnlyWL" },
+      { property: "og:title", content: "OnlyWL" },
+      { property: "og:description", content: "OnlyWL – en minimal webbläsare med vitlista." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -107,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sv">
       <head>
         <HeadContent />
       </head>
