@@ -1,33 +1,23 @@
 # OnlyWL
 
-En minimal webbläsare med vitlista. Starta appen, skriv en tillåten adress per rad (eller välj en sparad grupp) och tryck **surf**. Varje sida öppnas i en egen flik. Navigering till sidor utanför vitlistan blockeras.
+### Only White List
 
-## Utveckling (webbförhandsvisning)
+OnlyWL is a minimal Windows web browser built around one simple idea:
 
-```bash
-npm install
-npm run dev
-```
+> **You decide which websites are allowed.**
 
-## Skrivbordsapp (Electron)
+Instead of starting with a search engine or an open web, OnlyWL starts with a whitelist. Add the websites you want to use, and OnlyWL keeps your browsing focused on those sites.
 
-Electron är inte med i standardinstallationen (stort paket). Installera en gång:
+---
 
-```bash
-npm install -D electron @electron/packager
-```
+## Download
 
-Bygg och starta:
+### OnlyWL v1.0.0
 
-```bash
-npm run electron:build   # bygger en statisk bundle till dist/
-npm run electron:start   # startar skrivbordsappen
-```
+**Windows 10 / 11 — 64-bit**
 
-Skapa en .exe (Windows, x64):
+[Download OnlyWL v1.0.0](https://github.com/eskil7788/browser-clone-project/releases/latest)
 
-```bash
-npm run electron:package   # resultatet hamnar i release/OnlyWL-win32-x64/
-```
+Download the `.zip` file from the latest release, extract it, and launch OnlyWL.
 
-Cookies och cache sparas på datorn (Electron-partition `persist:onlyw`), och sparade grupper ligger i appens lokala lagring.
+---
